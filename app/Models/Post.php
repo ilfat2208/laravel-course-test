@@ -13,7 +13,7 @@ class Post extends Model
         "title",
         "description",
         "preview",
-        "thumbnail"
+        "thumbnail",
     ];
 
     public function comment()
