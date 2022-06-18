@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::middleware('r')->group(function(){
+
+//     Route::get('/', [IndexController::class, 'index'])->name('home');
+
+//     Route::post('/contact_form', [IndexController::class, 'index'])->name('contact_form');
+// });
+
+Route::get('/', [IndexController::class, 'index'])->name('home');
+
