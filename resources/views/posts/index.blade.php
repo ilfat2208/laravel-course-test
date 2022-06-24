@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'Главная страница')
+@section('title', 'Посты')
 @section('content')
 @include('partials.header')
 
@@ -9,6 +9,6 @@
     @include('posts.partials.item', ['post'=>$post])
     @endforeach
 
-
+    {{$posts->links()}}
 </div>
 @endsection
