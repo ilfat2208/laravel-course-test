@@ -42,7 +42,16 @@ class PostController extends Controller
      */
     public function store(PostFormRequest $request)
     {
-        $post = Post::create($request->validated());
+        $post = Post::firstOrFail();
+        // $post = Post::findOrFail($id);
+
+        $data = $request->validated();
+
+        if ($request->has("thumbnail")) {
+            $thumbnail = str_replace("public/posts", "", $request->file("thumbnail")->store("public/posts"));
+            $data["thumbnail"] = $thumbnail;
+        }
+        $post->create($data);
 
         return redirect(route('admin.posts.index'));
     }

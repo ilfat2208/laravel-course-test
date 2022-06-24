@@ -28,6 +28,7 @@ class PostFormRequest extends FormRequest
             "preview" => ["required"],
             "description" => ["required"],
             "thumbnail" => ["image"],
+
         ];
     }
 }
